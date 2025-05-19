@@ -13,7 +13,7 @@ class ProductScreen extends StatelessWidget {
           onRefresh: () => controller.refreshData(),
           child: ListView.builder(
             controller: controller.scrollController,
-            itemCount: controller.productList.length + 1,
+            itemCount: controller.productList.length + 1, // Loading Logic
             itemBuilder: (context, index) {
               if (index < controller.productList.length) {
                 return ProductTile(product: controller.productList[index]);
@@ -29,6 +29,11 @@ class ProductScreen extends StatelessWidget {
     );
   }
 }
+
+### Highlights: 
+
+  # If unlimited loading issue, then use this logic:
+    solution:  (sales.page.value < sales.lastPage.value ? 1 : 0)
 
 
  */
